@@ -1,35 +1,28 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+/*
+UNIT TESTING
+INDIVIDUAL TESTING
+JASMINE -- TEST SUITES help all functionality 
+KARMA---TEST RUNNER
+TEST SUITES--collection of test CASES
+test case1.....test case8
+for every test case i have some assertion 
+if assertion met --test cases passes/successfull
+else test fail
+*/
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+import { AppComponent } from "./app.component";
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+describe('AppComponentTestSuites',()=>
+  {
+     it('should have a defined title',()=>
+      {
+        const component=new AppComponent();
+        expect(component.title).toBeDefined();
+      });
 
-  it(`should have as title 'testanddebug'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('testanddebug');
+      it('value should equal to this value',()=>
+        {
+          const component=new AppComponent();
+          expect(component.title).toEqual('angular');
+        });
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('testanddebug app is running!');
-  });
-});
